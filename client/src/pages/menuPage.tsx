@@ -24,10 +24,10 @@ const MenuSkeleton = () => (
 
     {/* Tabs skeleton */}
     <div className="flex gap-3 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-      {[120, 96, 108, 88].map((w, i) => (
-        <Shimmer key={i} className="h-9 rounded-full" style={{ width: w }} />
-      ))}
-    </div>
+  {['w-28', 'w-24', 'w-28', 'w-20'].map((w, i) => (
+    <Shimmer key={i} className={`h-9 rounded-full ${w}`} />
+  ))}
+</div>
 
     {/* Menu items skeleton */}
     <section className="menu-content px-6 py-6 space-y-4">
