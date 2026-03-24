@@ -27,7 +27,14 @@
         .hero-title { font-family: 'Cinzel', serif; font-size: clamp(44px, 8vw, 82px); font-weight: 900; color: #fff; letter-spacing: 12px; text-transform: uppercase; line-height: 1; text-shadow: 0 2px 30px rgba(0,0,0,0.9); }
         .hero-underline { width: 72px; height: 4px; background: #8b1a1a; margin: 14px auto; }
         .hero-sub { font-size: 13px; color: #aaa; letter-spacing: 0.5px; max-width: 540px; line-height: 1.75; margin: 0 auto; }
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
         /* TABS */
         .tabs-wrap { display: flex; justify-content: center; padding: 32px 24px 0; background: var(--bg2); border-bottom: 1px solid var(--border); }
         .tab-btn { padding: 14px 52px; border: 1px solid var(--border); background: transparent; color: var(--dim); font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; position: relative; top: 1px; margin: 0 -1px; }
