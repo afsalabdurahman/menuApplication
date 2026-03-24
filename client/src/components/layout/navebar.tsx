@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Navbar: FC = () => {
   return (
@@ -15,11 +16,11 @@ export const Navbar: FC = () => {
 
       <ul className="nav-links">
         <li><a href="">Home</a></li>
-        <li><a href="/">Menu</a></li>
+        <li><Link to={"/"}>Menu</Link></li>
     
-        <li><a href="/create/menu">Create Menu</a></li>
-        <li><a href="/reservation">MAKE A RESERVATION</a></li>
-        <li><a href="/contact">CONTACT US</a></li>
+        <li><Link to={"/create/menu"} >Create Menu</Link></li>
+        <li><Link to={"/reservation"}>MAKE A RESERVATION</Link></li>
+        <li><Link to={"/contact"}>CONTACT US</Link></li>
       </ul>
     </nav>
   );
