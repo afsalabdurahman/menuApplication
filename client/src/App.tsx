@@ -1,17 +1,18 @@
 import { MenuCreate } from "./components/admin/menuForm"
-import { Home } from "./components/user/home"
 import { MenuPage } from "./pages/menuPage"
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'
 import "./App.css"
 import { Navbar } from "./components/layout/navebar"
+
 function RootLayout() {
   return (
     
     <div className="min-h-screen">
       <Navbar />
-      <Outlet />           {/* This renders the child routes */}
+  
+      <Outlet />           
         <footer>
-        {/* ... footer content ... */}
+       
       </footer>
     </div>
   )

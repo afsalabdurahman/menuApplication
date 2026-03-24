@@ -1,25 +1,47 @@
-import { FC } from 'react';
-import { Menu } from '../../types/menu';
+import { FC, useEffect, useState } from "react";
+import { getCategory } from "../../apiService/menuApis";
+
+type Category = {
+  _id: string;
+  name: string;
+};
 
 type Props = {
-  menus: Menu[];
   activeId: string;
   onChange: (id: string) => void;
 };
 
-export const MenuTabs: FC<Props> = ({ menus, activeId, onChange }) => {
+export const MenuTabs: FC<Props> = ({ activeId, onChange }) => {
+  const [category, setCategory] = useState<Category[]>([]);
+
+  useEffect(() => {
+    const fetchCategory = async () => {
+      try {
+        const response = await getCategory(); // make sure this exists
+        setCategory(response);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategory();
+  }, []);
+
+  if (category.length === 0) {
+    return <div className="tabs-wrap">No menus available</div>;
+  }
+
   return (
     <div className="tabs-wrap">
-      {menus.map((m) => (
+      {category.map((m) => (
         <button
-          key={m.id}
-          className={`tab-btn ${activeId === m.id ? 'active' : ''}`}
-          onClick={() => onChange(m.id)}
+          key={m._id}
+          className={`tab-btn ${activeId === m.name ? "active" : ""}`}
+          onClick={() => onChange(m.name)}
         >
-          {m.label}
+          {m.name?.toUpperCase() || "MENU"}
         </button>
       ))}
     </div>
   );
 };
-
